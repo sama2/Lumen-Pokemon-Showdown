@@ -9,7 +9,7 @@ exports.commands = {
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return false;
 		this.sendReplyBox(
-			'<center><h3><b><u>Tienda del servidor</u></b></h3><table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody>' +
+			'<center><h3><b><u>Tienda del servidor Drive</u></b></h3><table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody>' +
 			'<tr><th>Art&iacute;culo</th><th>Descripci&oacute;n</th><th>Coste</th></tr>' +
 			'<tr><td>Chatroom</td><td>Compra una Sala de chat. Será pública o privada en función del motivo de su compra. Si se detecta spam de comandos / saturación del modlog será borrada.</td><td>10000</td></tr>' +
 			'<tr><td>CustomTC</td><td>Compra una Tarjeta de Entrenador personalizada (a partir de código html). Contactar con un administrador si el código es muy largo para un solo mensaje.</td><td>8000</td></tr>' +
@@ -65,7 +65,7 @@ exports.commands = {
 		var article = toId(params[0]);
 		switch (article) {
 			case 'customtc':
-				prize = 8000;
+				prize = 6500;
 				if (Shop.getUserMoney(user.name) < prize) return this.sendReply("No tienes suficiente dinero.");
 				var tcUser = Shop.getTrainerCard(user.name);
 				if (!tcUser) {
@@ -98,7 +98,7 @@ exports.commands = {
 				return this.sendReply("Has comprado un Sprite de un pokemon para tu TC. Revisa /shophelp para más información.");
 				break;
 			case 'chatroom':
-				prize = 10000;
+				prize = 8000;
 				if (Shop.getUserMoney(user.name) < prize) return this.sendReply("No tienes suficiente dinero.");
 				if (params.length !== 2) return this.sendReply("Usa el comando así: /buy chatroom,[nombre]");
 				var id = toId(params[1]);
@@ -113,7 +113,7 @@ exports.commands = {
 				return this.sendReply("No se pudo realizar la compra debido a un error al crear la sala '" + params[1] + "'.");
 				break;
 			case 'symbol':
-				prize = 4000;
+				prize = 3500;
 				if (Shop.getUserMoney(user.name) < prize) return this.sendReply("No tienes suficiente dinero.");
 				if (Shop.symbolPermision(user.name)) return this.sendReply("Ya posees este artículo.");
 				Shop.setSymbolPermision(user.name, true);
