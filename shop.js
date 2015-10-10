@@ -230,7 +230,7 @@ exports.setCustomTrainerCard = function (user, value) {
 //avatars
 exports.addPendingAvatar = function (user, url) {
 	var userId = toId(user);
-	if (boughtAvatars[userId]) return 'Ya tenias una solicitud de avatar pendiente, espera a que sea revisada por un administrador.';
+	if (boughtAvatars[userId]) return 'Ya tenias una solicitud de avatar pendiente,habla con un administrador para que te lo ponga.';
 	boughtAvatars[userId] = url;
 	writeAvatarsData();
 	return false;
