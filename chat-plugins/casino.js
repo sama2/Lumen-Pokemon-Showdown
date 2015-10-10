@@ -128,8 +128,8 @@ exports.commands = {
 	buytable: function (target, room, user) {
 		if (room.id !== 'casino') return this.sendReply("Este comando solo puede ser usado en una sala de Casino");
 		if (!bingoStatus) return this.sendReply("No hay ningún bingo en marcha.");
-		if (tables[user.userid]) return this.sendReply("Ya habías comprado una tablilla.");
-		if (Shop.getUserMoney(user.name) < 10) return this.sendReply("No tienes suficiente dinero.");
+		if (tables[user.userid]) return this.sendReply("Ya habías comprado una tablilla :D.");
+		if (Shop.getUserMoney(user.name) < 10) return this.sendReply("No tienes suficiente dinero :(.");
 		Shop.removeMoney(user.name, 10);
 		Shop.giveMoney('casino', 5);
 		var numbers = getBingoNumbers().randomize();
@@ -144,16 +144,16 @@ exports.commands = {
 		checkBingo(room);
 	},
 	
-	vertablilla: 'bingo',
-	tablilla: 'bingo',
-	bingo: function (target, room, user) {
+	vertablilla: 'carta',
+	tablilla: 'carta',
+	carta: function (target, room, user) {
 		if (room.id !== 'casino') return this.sendReply("Este comando solo puede ser usado en una sala de Casino");
 		if (!this.canBroadcast()) return;
 		if (!bingoStatus) return this.sendReply("No hay ningún bingo en marcha.");
 		var targetUserId = user.userid;
 		if (tables[toId(target)]) targetUserId = toId(target);
 		if (tables[targetUserId]) {
-			var html = '<b>Juego de bingo:</b> Tablilla de ' + getUserName(targetUserId) + '<br /><br />';
+			var html = '<b>Juego de bingo:</b> carta de ' + getUserName(targetUserId) + '<br /><br />';
 			html += '<table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody><tr>';
 			for (var n = 0; n < tables[targetUserId].length; ++n) {
 				if (!bingoSaidNumbers[tables[targetUserId][n]]) {
