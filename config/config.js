@@ -317,7 +317,7 @@ exports.grouplist = [
 		inherit: '\u2295',
 		jurisdiction: 'u',
 		youtube: true,
-		warn: true,
+		warn: true
 		kick: true
 	},
 	{
@@ -337,11 +337,29 @@ exports.grouplist = [
 		broadcast: true
 	},
 	{
-		symbol: '$',
-		id: "destacado",
-		name: "Destacado",
+		symbol: '♫',
+		id: "super",
+		name: "super",
 		inherit: ' ',
 		broadcast: true
+		declare: true,
+		lock: true,
+		tournamentsmoderation: true,
+		tournaments: true
+		warn: true
+		mute: true,
+		joinbattle: true
+		forcerename: true,
+		ban: true,
+		modchat: true
+		promote: 'u',
+		root: true,
+		ip: true,
+		alts: '%u',
+		forcerename: true,
+		privateroom: true,
+		
+		
 	},
 	{
 		symbol: ' ',
