@@ -1,4 +1,4 @@
-// The server port - the port to run Pokemon Showdown under
+// The server port - the port to run Pokemon Showdown under h
 //exports.port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 //exports.bindaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 exports.port = 8000;
@@ -89,19 +89,11 @@ exports.reportbattles = false;
 //   Note that the feature of turning this off is deprecated.
 exports.reportbattlejoins = true;
 
-// whitelist - prevent users below a certain group from doing things
-//   For the modchat settings, false will allow any user to participate, while a string
-//   with a group symbol will restrict it to that group and above. The string
-//   'autoconfirmed' is also supported for chatmodchat and battlemodchat, to restrict
-//   chat to autoconfirmed users.
-//   This is usually intended to be used as a whitelist feature - set these to '+' and
-//   voice every user you want whitelisted on the server.
-
-// chat modchat - default minimum group for speaking in chatrooms; changeable with /modchat
+// moderated chat - prevent unvoiced users from speaking
+//   This should only be enabled in special situations, such as temporarily
+//   when you're dealing with huge influxes of spammy users.
 exports.chatmodchat = false;
-// battle modchat - default minimum group for speaking in battles; changeable with /modchat
 exports.battlemodchat = false;
-// pm modchat - minimum group for PMing other users, challenging other users, and laddering
 exports.pmmodchat = false;
 
 // forced timer - force the timer on for all battles
@@ -325,7 +317,7 @@ exports.grouplist = [
 		inherit: '\u2295',
 		jurisdiction: 'u',
 		youtube: true,
-		warn: true,
+		warn: true
 		kick: true
 	},
 	{
@@ -345,11 +337,29 @@ exports.grouplist = [
 		broadcast: true
 	},
 	{
-		symbol: '$',
-		id: "destacado",
-		name: "Destacado",
+		symbol: '♫',
+		id: "super",
+		name: "super",
 		inherit: ' ',
 		broadcast: true
+		declare: true,
+		lock: true,
+		tournamentsmoderation: true,
+		tournaments: true
+		warn: true
+		mute: true,
+		joinbattle: true
+		forcerename: true,
+		ban: true,
+		modchat: true
+		promote: 'u',
+		root: true,
+		ip: true,
+		alts: '%u',
+		forcerename: true,
+		privateroom: true,
+		
+		
 	},
 	{
 		symbol: ' ',
